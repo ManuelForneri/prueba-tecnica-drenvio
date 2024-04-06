@@ -1,5 +1,4 @@
 import express from "express";
-import { __dirname } from "./config.js";
 import { connectMongo } from "./utils/dbConnection.js";
 import env from "./config/enviroment.config.js";
 import { productsRouter } from "./routes/products.routes.js";
@@ -14,7 +13,7 @@ connectMongo();
 app.use("/", productsRouter);
 app.use("/users", usersRouter);
 app.use("/", (req, res) => {
-  res.send("Home");
+  res.send("Prueba tecnica");
 });
 
 app.listen(PORT, () => {
