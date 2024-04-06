@@ -20,7 +20,7 @@ class ProductsController {
   getPrice = async (req, res) => {
     try {
       const { user_id, nombre_producto } = req.params;
-      const products = await PServices.getPrice(user_id, nombre_producto);
+      const products = await PServices.getPrice({ user_id, nombre_producto });
       return res.json({
         status: "success",
         msg: "Products Listing",

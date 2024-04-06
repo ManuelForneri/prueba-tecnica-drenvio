@@ -13,6 +13,9 @@ connectMongo();
 
 app.use("/", productsRouter);
 app.use("/users", usersRouter);
+app.use("/", (req, res) => {
+  res.send("Home");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port http://localhost:${PORT}`);
