@@ -13,7 +13,7 @@ connectMongo();
 app.use("/", productsRouter);
 app.use("/users", usersRouter);
 app.use("/", (req, res) => {
-  res.send("Prueba tecnica");
+  res.send("Prueba tecnica manuel forneri");
 });
 
 app.listen(PORT, () => {
