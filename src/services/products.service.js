@@ -12,14 +12,15 @@ class productServices {
   }
   async getPrice({ user_id, nombre_producto }) {
     try {
-      const product = await productsModel.findOne({ modelo: nombre_producto });
-      if (!product) {
-        throw new Error("Producto no encontrado, revise los datos");
-      }
       const user = await usersModel.findById(user_id);
       if (!user) {
         throw new Error("Usuario no encontrado, revise los datos");
       }
+      const product = await productsModel.findOne({ modelo: nombre_producto });
+      if (!product) {
+        throw new Error("Producto no encontrado, revise los datos");
+      }
+
       const marcaPremium = user.marcas_premium.includes(product.marca);
 
       if (marcaPremium) {

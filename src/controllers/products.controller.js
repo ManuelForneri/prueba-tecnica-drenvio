@@ -4,34 +4,28 @@ class ProductsController {
   getAll = async (req, res) => {
     try {
       const products = await PServices.getAll();
-      return res.json({
+      return res.status(200).json({
         status: "success",
         msg: "Products Listing",
         payload: products,
       });
     } catch (error) {
-      return res.json({
-        status: "error",
-        msg: "something went wrong :(",
-        payload: {},
-      });
+      return res
+        .status(500)
+        .json({ status: "error", msg: "Internal Server Error" });
     }
   };
   getPrice = async (req, res) => {
     try {
       const { user_id, nombre_producto } = req.params;
-      const products = await PServices.getPrice({ user_id, nombre_producto });
-      return res.json({
+      const response = await PServices.getPrice({ user_id, nombre_producto });
+      return res.status(200).json({
         status: "success",
         msg: "Products Listing",
-        payload: products,
+        payload: response,
       });
     } catch (error) {
-      return res.json({
-        status: "error",
-        msg: "something went wrong :(",
-        payload: {},
-      });
+      return res.status(400).json({ status: "error", msg: error.message });
     }
   };
 }

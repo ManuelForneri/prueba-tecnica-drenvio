@@ -12,7 +12,7 @@ class UsersController {
     } catch (error) {
       return res.json({
         status: "error",
-        msg: "something went wrong :(",
+        msg: "hola",
         payload: {},
       });
     }
