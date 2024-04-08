@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import { Command } from "commander";
 
 const program = new Command();
-program.option("--mode <mode>", "Modo de trabajo", "DEVELOPMENT");
+program.option("--mode <mode>", "Job mode", "DEVELOPMENT");
 program.parse();
 
 dotenv.config({

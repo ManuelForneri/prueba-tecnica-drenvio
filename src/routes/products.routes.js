@@ -5,6 +5,6 @@ export const productsRouter = Router();
 
 productsRouter.get("/products", productsController.getAll);
 productsRouter.get(
-  "/price/:user_id/:nombre_producto",
+  "/price/:user_id/:product_name",
   productsController.getPrice
 );

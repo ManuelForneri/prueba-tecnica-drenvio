@@ -2,6 +2,7 @@ import { UServices } from "../services/users.service.js";
 
 class UsersController {
   getAll = async (req, res) => {
+    //No se ocupa el req
     try {
       const users = await UServices.getAll();
       return res.json({
@@ -12,7 +13,7 @@ class UsersController {
     } catch (error) {
       return res.json({
         status: "error",
-        msg: "hola",
+        msg: "Internal Error server",
         payload: {},
       });
     }

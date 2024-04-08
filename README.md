@@ -4,6 +4,21 @@
 Back-end para una tienda de zapatillas.
 
 
+## Tecnologias
+ 
+
+**Express:** 4.19.2
+
+**Node:** 20.11.0
+
+**JavaScript:** ES6
+
+**commander:** 12.0.0
+
+**dotenv:** 16.4.5
+
+**mongoose:** 8.3.0
+
 ## Comandos
 
 ```bash

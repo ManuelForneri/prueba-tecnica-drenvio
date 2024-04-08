@@ -10,26 +10,26 @@ class productServices {
       throw error;
     }
   }
-  async getPrice({ user_id, nombre_producto }) {
+  async getPrice({ user_id, product_name }) {
     try {
       const user = await usersModel.findById(user_id);
       if (!user) {
-        throw new Error("Usuario no encontrado, revise los datos");
+        throw new Error("User not found, Review the data");
       }
-      const product = await productsModel.findOne({ modelo: nombre_producto });
+      const product = await productsModel.findOne({ model: product_name });
       if (!product) {
-        throw new Error("Producto no encontrado, revise los datos");
+        throw new Error("Product not found, Review the data");
       }
 
-      const marcaPremium = user.marcas_premium.includes(product.marca);
+      const premiumBrands = user.premium_brands.includes(product.brand);
 
-      if (marcaPremium) {
-        let descuento = product.precio * 0.8;
-        const producto_descuento = {
+      if (premiumBrands) {
+        let discount = product.price * 0.8;
+        const product_discount = {
           ...product.toObject(),
-          precio: descuento,
+          price: discount,
         };
-        return producto_descuento;
+        return product_discount;
       } else {
         return product;
       }

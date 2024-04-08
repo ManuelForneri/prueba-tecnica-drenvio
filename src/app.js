@@ -13,6 +13,7 @@ connectMongo();
 app.use("/", productsRouter);
 app.use("/users", usersRouter);
 app.use("/", (req, res) => {
+  //No se ocupa el req
   res.send("Prueba tecnica manuel forneri");
 });
 

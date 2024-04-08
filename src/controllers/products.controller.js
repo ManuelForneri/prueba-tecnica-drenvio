@@ -2,6 +2,7 @@ import { PServices } from "../services/products.service.js";
 
 class ProductsController {
   getAll = async (req, res) => {
+    //No se ocupa el req
     try {
       const products = await PServices.getAll();
       return res.status(200).json({
@@ -17,8 +18,8 @@ class ProductsController {
   };
   getPrice = async (req, res) => {
     try {
-      const { user_id, nombre_producto } = req.params;
-      const response = await PServices.getPrice({ user_id, nombre_producto });
+      const { user_id, product_name } = req.params;
+      const response = await PServices.getPrice({ user_id, product_name });
       return res.status(200).json({
         status: "success",
         msg: "Products Listing",
